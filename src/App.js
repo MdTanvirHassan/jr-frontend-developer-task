@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuthenticated, selectIsLoading, authenticate } from './features/authSlice';
 import { fetchProfile } from './features/profileSlice';
@@ -29,15 +29,16 @@ function App() {
   }
   return (
     <>
-      <BrowserRouter>
+      
         <Header />
+        {/* <BrowserRouter> */}
         <Routes>
           <Route path="/" element={isAuthenticated ? <Dashboard /> : <SignIn />} />
           <Route path="/signin" element={isAuthenticated ? <Dashboard /> : <SignIn />} />
           <Route path="/signup" element={isAuthenticated ? <Dashboard /> : <SignUp />} />
           <Route path="/users" element={isAuthenticated ? <Users /> : <SignIn />} />
         </Routes>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
   );
 }
