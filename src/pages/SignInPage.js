@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../features/authSlice';
-import axios from 'axios';
+import axios from 'axios';import { useNavigate } from 'react-router-dom';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ export default function SignInPage() {
         password,
       });
       dispatch(setUser(response.data));
+      navigate('https://reqres.in/dashboard');
     } catch (error) {
       setError('Invalid email or password');
     }

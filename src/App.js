@@ -37,6 +37,8 @@ function App() {
           <Route path="/signin" element={isAuthenticated ? <Dashboard /> : <SignIn />} />
           <Route path="/signup" element={isAuthenticated ? <Dashboard /> : <SignUp />} />
           <Route path="/users" element={isAuthenticated ? <Users /> : <SignIn />} />
+          <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Dashboard />} />
+          
         </Routes>
       {/* </BrowserRouter> */}
     </>
